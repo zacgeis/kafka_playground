@@ -1,0 +1,19 @@
+version: '2'
+services:
+  consumer:
+    build: ./consumer
+    ports:
+    - "4000:8080"
+    links:
+    - kafka
+  producer:
+    build: ./producer
+    ports:
+    - "5000:8080"
+    links:
+    - kafka
+  kafka:
+    build: ./kafka
+    ports:
+    - "9092:9092"
+    - "2181:2181"
